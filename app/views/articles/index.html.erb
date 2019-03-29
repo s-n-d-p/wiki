@@ -2,7 +2,7 @@
 <% @articles.each do |article| %>
     <p>
         <h2><%= link_to article.title, article %></h2>
-        <h3><%= truncate(article.body, length: 100) %></h3>
+        <h3><%= article.body.html_safe %></h3>
         <%= time_ago_in_words(article.created_at) %> ago
     </p>
     <hr>
