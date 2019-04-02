@@ -40,8 +40,13 @@ class ArticlesController < ApplicationController
         redirect_to root_path
     end
 
+    def show_category
+        @tag = params[:query]
+        @articles = Article.where(tag: @tag)
+    end 
+
     private 
         def article_params 
-            params.require(:article).permit(:title, :body)
+            params.require(:article).permit(:title, :tag, :body)
         end
 end

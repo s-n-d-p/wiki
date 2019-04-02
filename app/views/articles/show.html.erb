@@ -1,9 +1,14 @@
 <p>
+    <p align="right">By: <%= @article.user.email %><br>
+    <% if current_user && current_user == @article.user %>
+    (You)
+    <% end %>        
+    </p>
     <h2><%= @article.title %></h2>
+    <h5># <%= @article.tag %></h5>    
     <%= @article.body.html_safe %>
 
     <br><br>
-
     <% if current_user && current_user == @article.user %>
         <%= link_to "Edit", edit_article_path %>
         <%= link_to "Delete", article_path, method: :delete %>

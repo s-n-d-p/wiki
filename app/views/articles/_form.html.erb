@@ -11,6 +11,16 @@
         <%= f.label :title %>
         <%= f.text_field :title %>  
     </p>
+    
+    <p>
+        <%= f.label :tag %>
+        <select name="article[tag]">
+            <%= @tags.each do |tag| %>
+             <option value="<%= tag.tag %>"><%= tag.tag %></option>
+            <% end %>
+        </select>
+    </p>
+
     <p>
         <%= f.label :body %>
         <%= f.text_area :body %>
