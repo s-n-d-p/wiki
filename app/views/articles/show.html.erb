@@ -3,6 +3,9 @@
     <%= @article.body.html_safe %>
 
     <br><br>
-    <%= link_to "Edit", edit_article_path %>
-    <%= link_to "Delete", article_path, method: :delete %>
+
+    <% if current_user && current_user == @article.user %>
+        <%= link_to "Edit", edit_article_path %>
+        <%= link_to "Delete", article_path, method: :delete %>
+    <% end %>
 </p>
