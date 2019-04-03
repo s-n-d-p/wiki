@@ -3,7 +3,7 @@
 <% @articles.each do |article| %>
     <p>
         <h2><%= count %>) <%= link_to article.title, article %></h2><br>
-        <h5># <%= article.tag %></h5>            
+        <h5>#<%= link_to article.tag, "/category/" + article.tag, :class => 'btn btn-info btn-link ' %></h5>            
         <%= time_ago_in_words(article.created_at) %> ago
     </p>
     <hr>
